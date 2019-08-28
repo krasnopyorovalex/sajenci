@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\SliderImage\Requests;
 
 use App\Http\Requests\Request;
@@ -10,7 +12,7 @@ use App\Http\Requests\Request;
  */
 class CreateSliderImageRequest extends Request
 {
-    public function rules()
+    public function rules(): array
     {
         return [
             'upload' => 'image',
@@ -23,7 +25,7 @@ class CreateSliderImageRequest extends Request
      *
      * @return array
      */
-    public function messages()
+    public function messages(): array
     {
         return [
             'upload.image' => 'Разрешено загружать только изображения',

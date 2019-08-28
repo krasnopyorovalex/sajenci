@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\Slider\Requests;
 
 use App\Http\Requests\Request;
@@ -10,7 +12,7 @@ use App\Http\Requests\Request;
  */
 class UpdateSliderRequest extends Request
 {
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => 'bail|required|max:512'
@@ -22,7 +24,7 @@ class UpdateSliderRequest extends Request
      *
      * @return array
      */
-    public function messages()
+    public function messages(): array
     {
         return [
             'name.required' => 'Поле «Название» обязательно для заполнения',

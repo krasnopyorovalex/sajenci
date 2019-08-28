@@ -78,9 +78,9 @@
 }
 .navbar-brand > img {
     width: 100%;
-    max-width: 150px;
+    max-width: 120px;
     height: auto;
-    margin: 5px auto 0;
+    margin: 8px auto 0;
 }
 .center {
     text-align: center;
@@ -336,4 +336,7 @@ li.mjs-nestedSortable-collapsed.mjs-nestedSortable-hovering div {
 .advantage__image .upload__image {
     max-width: 100px;
     height: auto;
+}
+.navbar-nav>.dropdown-user img {
+    border-radius: 0;
 }

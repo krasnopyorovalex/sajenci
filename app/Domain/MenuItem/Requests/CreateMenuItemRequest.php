@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\MenuItem\Requests;
 
 use App\Http\Requests\Request;

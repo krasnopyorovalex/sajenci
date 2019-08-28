@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\SliderImage\Commands;
 
 use App\Domain\SliderImage\Queries\GetSliderImageByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Storage;
 
 /**
  * Class DeleteSliderImageCommand
@@ -34,9 +37,9 @@ class DeleteSliderImageCommand
     {
         $image = $this->dispatch(new GetSliderImageByIdQuery($this->id));
 
-        \Storage::delete([
+        Storage::delete([
             'public/slider/' . $image->slider_id . '/' . $image->basename . '.' . $image->ext,
-            'public/slider/' . $image->slider_id . '/' . $image->basename . '_thumb.' . $image->ext
+            //'public/slider/' . $image->slider_id . '/' . $image->basename . '_thumb.' . $image->ext
         ]);
 
         return $image->delete();

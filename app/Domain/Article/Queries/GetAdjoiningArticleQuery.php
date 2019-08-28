@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Article\Queries;
 
 use App\Article;
@@ -14,7 +16,7 @@ class GetAdjoiningArticleQuery
     /**
      * @return AdjoiningResult
      */
-    public function handle()
+    public function handle(): AdjoiningResult
     {
         return new AdjoiningResult(Article::orderByDesc('published_at')->get());
     }

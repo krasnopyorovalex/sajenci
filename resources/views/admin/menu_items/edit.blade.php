@@ -41,8 +41,6 @@
 
                 @input(['name' => 'name', 'entity' => $menuItem, 'label' => 'Название'])
                 @selectLink(['name' => 'link', 'entity' => $menuItem, 'label' => 'Ссылка'])
-                @checkbox(['name' => 'is_service', 'entity' => $menuItem, 'label' => 'Отобразить список услуг?'])
-                @checkbox(['name' => 'is_delimiter', 'entity' => $menuItem, 'label' => 'Разделитель?'])
                 @submit_btn()
 
             </form>

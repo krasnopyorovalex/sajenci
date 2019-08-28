@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -52,6 +54,7 @@ class Page extends Model
     private $templates = [
         'page.page' => 'Информационная',
         'page.index' => 'Главная',
+        'page.list' => 'Статьи/Новости',
         'page.contacts' => 'Контакты'
     ];
 

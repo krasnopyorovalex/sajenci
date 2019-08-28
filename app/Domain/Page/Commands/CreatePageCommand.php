@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Page\Commands;
 
-use App\Domain\Image\Commands\UploadImageCommand;
 use App\Http\Requests\Request;
 use App\Page;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -33,13 +34,7 @@ class CreatePageCommand
     {
         $page = new Page();
         $page->fill($this->request->all());
-        $page->save();
-
-        if($this->request->has('image')) {
-            return $this->dispatch(new UploadImageCommand($this->request, $page->id, Page::class));
-        }
-
-        return true;
+        return $page->save();
     }
 
 }

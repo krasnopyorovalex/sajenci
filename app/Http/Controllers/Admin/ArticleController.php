@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Admin;
 
 use App\Domain\Article\Commands\CreateArticleCommand;
@@ -10,6 +12,10 @@ use App\Domain\Article\Queries\GetArticleByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\Article\Requests\CreateArticleRequest;
 use Domain\Article\Requests\UpdateArticleRequest;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 
 /**
  * Class ArticleController
@@ -18,9 +24,7 @@ use Domain\Article\Requests\UpdateArticleRequest;
 class ArticleController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View
      */
     public function index()
     {
@@ -32,9 +36,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View
      */
     public function create()
     {
@@ -42,10 +44,8 @@ class ArticleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
      * @param CreateArticleRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function store(CreateArticleRequest $request)
     {
@@ -55,12 +55,10 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Factory|View
      */
-    public function edit($id)
+    public function edit(int $id)
     {
         $article = $this->dispatch(new GetArticleByIdQuery($id));
 
@@ -70,11 +68,11 @@ class ArticleController extends Controller
     }
 
     /**
-     * @param $id
+     * @param int $id
      * @param UpdateArticleRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
-    public function update($id, UpdateArticleRequest $request)
+    public function update(int $id, UpdateArticleRequest $request)
     {
         $this->dispatch(new UpdateArticleCommand($id, $request));
 
@@ -82,12 +80,10 @@ class ArticleController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return RedirectResponse|Redirector
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         $this->dispatch(new DeleteArticleCommand($id));
 

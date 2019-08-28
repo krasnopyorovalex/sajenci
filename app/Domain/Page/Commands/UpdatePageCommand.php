@@ -1,13 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Page\Commands;
 
-use App\Domain\Image\Commands\DeleteImageCommand;
-use App\Domain\Image\Commands\UploadImageCommand;
 use App\Domain\Page\Queries\GetPageByIdQuery;
 use App\Events\RedirectDetected;
 use App\Http\Requests\Request;
-use App\Page;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
@@ -41,15 +40,8 @@ class UpdatePageCommand
         $page = $this->dispatch(new GetPageByIdQuery($this->id));
         $urlNew = $this->request->post('alias');
 
-        if ($page->getOriginal('alias') != $urlNew) {
+        if ($page->getOriginal('alias') !== $urlNew) {
             event(new RedirectDetected($page->getOriginal('alias'), $urlNew));
-        }
-
-        if ($this->request->has('image')) {
-            if ($page->image) {
-                $this->dispatch(new DeleteImageCommand($page->image));
-            }
-            $this->dispatch(new UploadImageCommand($this->request, $page->id, Page::class));
         }
 
         return $page->update($this->request->all());

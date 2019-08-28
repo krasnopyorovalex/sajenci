@@ -14,9 +14,15 @@ Route::pattern('alias', '[\da-z-]+');
 
 Auth::routes();
 
+Route::post('send-callback', 'CallbackController@callback')->name('send.callback');
+Route::get('sitemap.xml', 'SitemapController@xml')->name('sitemap.xml');
+
 Route::group(['middleware' => ['redirector']], static function () {
 
-    Route::get('/{alias?}/{page?}', 'PageController@show')->name('page.show')->where('page', '[0-9]+');
+    Route::get('/{alias?}/{page?}', 'CatalogController@show')->name('page.show')->where('page', '[0-9]+');
+    Route::get('articles/{alias}', 'ArticleController@show')->name('article.show');
+    //Route::get('catalog/{alias}', 'CatalogController@show')->name('catalog.show');
+    Route::get('product/{alias}', 'CatalogProductController@show')->name('catalog_product.show');
 });
 
 Route::group(['prefix' => '_root', 'middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.'], static function () {

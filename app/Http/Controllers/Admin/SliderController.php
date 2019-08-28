@@ -10,13 +10,19 @@ use App\Domain\Slider\Queries\GetSliderByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\Slider\Requests\CreateSliderRequest;
 use Domain\SliderImage\Requests\UpdateSliderImageRequest;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 
+/**
+ * Class SliderController
+ * @package App\Http\Controllers\Admin
+ */
 class SliderController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View
      */
     public function index()
     {
@@ -28,9 +34,7 @@ class SliderController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View
      */
     public function create()
     {
@@ -38,10 +42,8 @@ class SliderController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
      * @param CreateSliderRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function store(CreateSliderRequest $request)
     {
@@ -51,10 +53,8 @@ class SliderController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Factory|View
      */
     public function edit($id)
     {
@@ -68,7 +68,7 @@ class SliderController extends Controller
     /**
      * @param $id
      * @param UpdateSliderImageRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse|Redirector
      */
     public function update($id, UpdateSliderImageRequest $request)
     {
@@ -78,10 +78,8 @@ class SliderController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return RedirectResponse|Redirector
      */
     public function destroy($id)
     {

@@ -178,6 +178,9 @@ return [
         App\Providers\TreeRecursiveBuildServiceProvider::class,
         App\Providers\UploadCkeditorImageServiceProvider::class,
         App\Providers\UploadImagesServiceProvider::class,
+        App\Providers\MenuServiceProvider::class,
+        App\Providers\ArticlesServiceProvider::class,
+        App\Providers\CatalogServiceProvider::class,
 
     ],
 

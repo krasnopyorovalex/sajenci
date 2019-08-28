@@ -7,10 +7,15 @@ use App\Domain\Page\Commands\DeletePageCommand;
 use App\Domain\Page\Commands\UpdatePageCommand;
 use App\Domain\Page\Queries\GetAllPagesQuery;
 use App\Domain\Page\Queries\GetPageByIdQuery;
+use App\Domain\Slider\Queries\GetAllSlidersQuery;
 use App\Http\Controllers\Controller;
 use App\Page;
 use Domain\Page\Requests\CreatePageRequest;
 use Domain\Page\Requests\UpdatePageRequest;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 
 /**
  * Class PageController
@@ -19,9 +24,7 @@ use Domain\Page\Requests\UpdatePageRequest;
 class PageController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View
      */
     public function index()
     {
@@ -33,24 +36,22 @@ class PageController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View
      */
     public function create()
     {
         $page = new Page();
+        $sliders = $this->dispatch(new GetAllSlidersQuery());
 
         return view('admin.pages.create', [
-            'templates' => $page->getTemplates()
+            'templates' => $page->getTemplates(),
+            'sliders' => $sliders
         ]);
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
      * @param CreatePageRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function store(CreatePageRequest $request)
     {
@@ -60,24 +61,24 @@ class PageController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Factory|View
      */
     public function edit($id)
     {
         $page = $this->dispatch(new GetPageByIdQuery($id));
+        $sliders = $this->dispatch(new GetAllSlidersQuery());
 
         return view('admin.pages.edit', [
-            'page' => $page
+            'page' => $page,
+            'sliders' => $sliders
         ]);
     }
 
     /**
      * @param $id
      * @param UpdatePageRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse|Redirector
      */
     public function update($id, UpdatePageRequest $request)
     {
@@ -87,10 +88,8 @@ class PageController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return RedirectResponse|Redirector
      */
     public function destroy($id)
     {

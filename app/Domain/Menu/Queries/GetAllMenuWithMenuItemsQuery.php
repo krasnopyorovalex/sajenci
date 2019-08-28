@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Menu\Queries;
 
 use App\Menu;
@@ -15,9 +17,9 @@ class GetAllMenuWithMenuItemsQuery
      */
     public function handle()
     {
-        return Menu::with(['menuItems' => function ($query) {
-            return $query->where('parent_id', null)->orderBy('pos')->with(['menuItems' => function ($query) {
-                return $query->orderBy('pos')->with(['menuItems']);
+        return Menu::with(['menuItems' => static function ($query) {
+            return $query->where('parent_id', null)->orderBy('pos')->with(['menuItems' => static function ($query) {
+                return $query->with(['menuItems']);
             }]);
         }])->get();
     }

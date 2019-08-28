@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Support\Str;
 
 /**
  * App\Article
@@ -37,6 +40,8 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 class Article extends Model
 {
     use AutoAliasTrait;
+
+    private const LIMIT_WORDS_IN_PREVIEW = 7;
 
     public $timestamps = false;
 
@@ -84,5 +89,15 @@ class Article extends Model
     public function getDescription(): string
     {
         return sprintf('%s', $this->description);
+    }
+
+    /**
+     * @return string
+     */
+    public function getPreview(): string
+    {
+        $preview = strip_tags($this->preview);
+
+        return sprintf('%s', Str::words($preview, self::LIMIT_WORDS_IN_PREVIEW));
     }
 }

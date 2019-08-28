@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services;
 
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +18,7 @@ class CanonicalService
      */
     public function check(Model $entity): Model
     {
-        $numberPage = intval(request('page'));
+        $numberPage = (int)request('page');
 
         if ($numberPage) {
             $entity->title .= " - страница №{$numberPage}";
@@ -25,5 +27,4 @@ class CanonicalService
 
         return $entity;
     }
-
 }

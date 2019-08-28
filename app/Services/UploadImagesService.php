@@ -109,11 +109,16 @@ class UploadImagesService
         return 'public'. DIRECTORY_SEPARATOR . $this->entity . DIRECTORY_SEPARATOR . $this->entityId . DIRECTORY_SEPARATOR;
     }
 
-    public function createThumb(): void
+    /**
+     * @return $this
+     */
+    public function createThumb(): self
     {
         (new ImageManager())
             ->make($this->image)
             ->resize($this->widthThumb, $this->heightThumb)
             ->save(public_path('storage' . DIRECTORY_SEPARATOR . $this->entity . DIRECTORY_SEPARATOR . $this->entityId . DIRECTORY_SEPARATOR . $this->getImageHashName() . '_thumb.' . $this->getExt()));
+
+        return $this;
     }
 }

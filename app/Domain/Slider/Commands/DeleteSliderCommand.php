@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Slider\Commands;
 
 use App\Domain\Slider\Queries\GetSliderByIdQuery;

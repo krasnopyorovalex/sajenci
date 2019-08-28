@@ -1,26 +1,52 @@
-@extends('layouts.app')
-
-@section('title', '404 - Страница не найдена')
-@section('description', '404 - Страница не найдена')
-@section('keywords', '404 - Страница не найдена')
-
-@section('content')
-
-    <section class="not__found">
-        <div class="bg__box"></div>
+<!DOCTYPE html>
+<html lang="ru-RU" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <title>404 - страница не найдена</title>
+    <meta name="description" content="Запрашиваемая страница отсутствует на сайте">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="{{ asset('img/favicons/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="{{ asset('img/favicons/favicon-16x16.png') }}" type="image/png">
+    <link rel="icon" sizes="32x32" href="{{ asset('img/favicons/favicon-32x32.png') }}" type="image/png">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('img/favicons/apple-touch-icon-precomposed.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('img/favicons/apple-touch-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('img/favicons/apple-touch-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicons/apple-touch-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/favicons/apple-touch-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/favicons/apple-touch-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('img/favicons/apple-touch-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('img/favicons/apple-touch-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/favicons/apple-touch-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{ asset('img/favicons/apple-touch-icon-167x167.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicons/apple-touch-icon-180x180.png') }}">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="{{ asset('img/favicons/apple-touch-icon-1024x1024.png') }}">
+    <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
+    <link rel="canonical" href="@yield('canonical', request()->url())"/>
+</head>
+<body>
+    <section class="error_404 big_bg">
         <div class="container">
             <div class="row">
-                <div class="col-9">
-                    <div class="not__found-box">
-                        <img src="{{ asset('img/in_404.svg') }}" alt="страница не найдена">
-                        <div>УПС</div>
-                        <div>404</div>
-                        <span>Страница не найдена</span>
+                <div class="col-12">
+                    <div class="error_404-body">
+                        <img src="{{ asset('img/404.png') }}" alt="страница не найдена">
+                        <p>УПС! Запрашиваемая Вами страница не найдена</p>
+                        <a href="{{ route('page.show') }}" class="btn btn_more">
+                            <svg>
+                                <use xlink:href="{{ asset('img/sprites/sprite.svg#right-arrow') }}"></use>
+                            </svg>
+                            Перейти на главную
+                        </a>
                     </div>
-                    <a href="{{ route('page.show') }}" class="btn_404">Перейти на главную</a>
                 </div>
             </div>
         </div>
     </section>
-
-@endsection
+</body>
+</html>

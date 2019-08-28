@@ -26,13 +26,12 @@
                     </select>
                 </div>
 
+                @select(['name' => 'slider_id', 'label' => 'Слайдер', 'items' => $sliders])
+
                 @input(['name' => 'name', 'label' => 'Название'])
                 @input(['name' => 'title', 'label' => 'Title'])
                 @input(['name' => 'description', 'label' => 'Description'])
                 @input(['name' => 'alias', 'label' => 'Alias'])
-                @input(['name' => 'slogan', 'label' => 'Слоган'])
-
-                @imageInput(['name' => 'image', 'type' => 'file', 'label' => 'Выберите изображение на компьютере'])
 
                 @textarea(['name' => 'text', 'label' => 'Текст'])
                 @checkbox(['name' => 'is_published', 'label' => 'Опубликовано?', 'isChecked' => true])

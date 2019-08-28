@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Domain\Article\Queries;
 
 use App\Article;
@@ -36,15 +38,14 @@ class GetAllArticlesQuery
      */
     public function handle()
     {
-        $articles = new Article();
-        $articles = $articles->orderBy('published_at', 'desc');
+        $articles = Article::orderBy('published_at', 'desc');
 
         if ($this->isPublished) {
            $articles->where('is_published', '1');
         }
 
         if ($this->limit) {
-            return $articles->paginate($this->limit, array('*'), 'page', intval(request('page')));
+            return $articles->paginate($this->limit, array('*'), 'page', (int)request('page'));
         }
 
         return $articles->get();

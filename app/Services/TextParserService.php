@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services;
 
 use App\Domain\Article\Queries\GetAllArticlesQuery;
-use App\Domain\Catalog\Queries\GetAllCatalogsWithoutParentQuery;
+use App\Domain\Catalog\Queries\GetAllCatalogsWithoutChildQuery;
 use App\Domain\Info\Queries\GetAllInfosQuery;
-use App\Domain\OurService\Queries\GetAllOurServicesQuery;
-use App\Domain\Project\Queries\GetAllProjectsQuery;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -18,7 +18,7 @@ class TextParserService
 {
     use DispatchesJobs;
 
-    private const PAGINATE_LIMIT = 10;
+    private const PAGINATE_LIMIT = 9;
 
     /**
      * @param Model $entity
@@ -33,28 +33,16 @@ class TextParserService
 
                     return view('layouts.shortcodes.articles', ['articles' => $articles]);
                 },
-                '#(<p(.*)>)?{our_services}(<\/p>)?#' => function () {
-                    $ourServices = $this->dispatch(new GetAllOurServicesQuery());
-
-                    return view('layouts.shortcodes.our_services', ['ourServices' => $ourServices]);
-                },
                 '#(<p(.*)>)?{news}(<\/p>)?#' => function () {
                     $news = $this->dispatch(new GetAllInfosQuery(true, self::PAGINATE_LIMIT));
 
                     return view('layouts.shortcodes.news', ['news' => $news]);
                 },
                 '#(<p(.*)>)?{catalog}(<\/p>)?#' => function () {
-                    $catalogs = $this->dispatch(new GetAllCatalogsWithoutParentQuery());
+                    $catalogs = $this->dispatch(new GetAllCatalogsWithoutChildQuery());
 
                     return view('layouts.shortcodes.catalogs', [
                         'catalogs' => $catalogs
-                    ]);
-                },
-                '#(<p(.*)>)?{projects}(<\/p>)?#' => function () {
-                    $projects = $this->dispatch(new GetAllProjectsQuery());
-
-                    return view('layouts.shortcodes.projects', [
-                        'projects' => $projects
                     ]);
                 }
             ],

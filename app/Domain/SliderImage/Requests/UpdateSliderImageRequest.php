@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\SliderImage\Requests;
 
 use App\Http\Requests\Request;
-use Illuminate\Validation\Rule;
 
 /**
  * Class UpdateSliderImageRequest
@@ -11,7 +12,7 @@ use Illuminate\Validation\Rule;
  */
 class UpdateSliderImageRequest extends Request
 {
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => 'string|max:255|nullable',
