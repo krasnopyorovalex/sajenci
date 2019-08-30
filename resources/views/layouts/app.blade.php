@@ -35,26 +35,52 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    @if (Route::has('login'))
                     <div class="login_box">
                         <ul>
-                            <li>
-                                <a href="#">
-                                    <svg>
-                                        <use xlink:href="{{ asset('img/sprites/sprite.svg#sign-in') }}"></use>
-                                    </svg>
-                                    Вход
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <svg>
-                                        <use xlink:href="{{ asset('img/sprites/sprite.svg#add-user') }}"></use>
-                                    </svg>
-                                    Регистрация
-                                </a>
-                            </li>
+                            @auth
+                                <li>
+                                    <a href="{{ route('cabinet.index') }}">
+                                        <svg>
+                                            <use xlink:href="{{ asset('img/sprites/sprite.svg#avatar') }}"></use>
+                                        </svg>
+                                        {{ auth()->user()->name }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="post">
+                                        {{ csrf_field() }}
+                                        <div class="submit">
+                                            <svg>
+                                                <use xlink:href="{{ asset('img/sprites/sprite.svg#exit') }}"></use>
+                                            </svg>
+                                            <button type="submit">Выйти</button>
+                                        </div>
+                                    </form>
+                                </li>
+                            @else
+                                <li>
+                                    <a href="{{ route('login') }}">
+                                        <svg>
+                                            <use xlink:href="{{ asset('img/sprites/sprite.svg#sign-in') }}"></use>
+                                        </svg>
+                                        Вход
+                                    </a>
+                                </li>
+                                <li>
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}">
+                                            <svg>
+                                                <use xlink:href="{{ asset('img/sprites/sprite.svg#add-user') }}"></use>
+                                            </svg>
+                                            Регистрация
+                                        </a>
+                                    @endif
+                                </li>
+                            @endauth
                         </ul>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

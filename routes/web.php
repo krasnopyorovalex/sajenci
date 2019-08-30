@@ -12,10 +12,15 @@
 */
 Route::pattern('alias', '[\da-z-]+');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::post('send-callback', 'CallbackController@callback')->name('send.callback');
 Route::get('sitemap.xml', 'SitemapController@xml')->name('sitemap.xml');
+
+Route::group(['prefix' => 'cabinet', 'middleware' => ['auth', 'verified'], 'as' => 'cabinet.'], static function () {
+
+    Route::get('', 'CabinetController@index')->name('index');
+});
 
 Route::group(['middleware' => ['redirector']], static function () {
 
@@ -25,7 +30,7 @@ Route::group(['middleware' => ['redirector']], static function () {
     Route::get('product/{alias}', 'CatalogProductController@show')->name('catalog_product.show');
 });
 
-Route::group(['prefix' => '_root', 'middleware' => 'auth', 'namespace' => 'Admin', 'as' => 'admin.'], static function () {
+Route::group(['prefix' => '_root', 'middleware' => ['auth', 'verified'], 'namespace' => 'Admin', 'as' => 'admin.'], static function () {
 
     Route::get('', 'HomeController@home')->name('home');
 
@@ -35,3 +40,7 @@ Route::group(['prefix' => '_root', 'middleware' => 'auth', 'namespace' => 'Admin
         require $item;
     }
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
