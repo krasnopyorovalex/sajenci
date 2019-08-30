@@ -40,13 +40,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-//    /**
-//     * Send the email verification notification.
-//     *
-//     * @return void
-//     */
-//    public function sendEmailVerificationNotification(): void
-//    {
-//        $this->notify(new VerifyEmail); // my notification
-//    }
+    /**
+     * Send the email verification notification.
+     *
+     * @return void
+     */
+    public function sendEmailVerificationNotification(): void
+    {
+        $this->notify(new VerifyEmail); // my notification
+    }
 }
