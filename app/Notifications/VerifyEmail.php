@@ -45,7 +45,8 @@ class VerifyEmail extends Notification
                     ->line('Подтвердите адрес электронной почты.')
                     ->action('Подтвердить', $verificationUrl)
                     ->line('Если Вы не создавали учётную запись, то никаких дальнейших действий не требуется.')
-                    ->markdown('emails.verified');
+                    ->markdown('notifications::email')
+                    ->view('emails.verified');
     }
 
     /**
