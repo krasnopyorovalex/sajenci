@@ -9,7 +9,6 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Config;
-use Closure;
 
 /**
  * Class VerifyEmail
@@ -17,24 +16,6 @@ use Closure;
  */
 class VerifyEmail extends Notification
 {
-    /**
-     * The callback that should be used to build the mail message.
-     *
-     * @var Closure|null
-     */
-    public static $toMailCallback;
-
-    /**
-     * Get the notification's channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array|string
-     */
-    public function via($notifiable)
-    {
-        return ['mail'];
-    }
-
     /**
      * Get the mail representation of the notification.
      *
@@ -45,17 +26,17 @@ class VerifyEmail extends Notification
     {
         $verificationUrl = $this->verificationUrl($notifiable);
 
-        if (static::$toMailCallback) {
-            return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
-        }
+        return (new MailMessage)->view(
+            'emails.verified', ['verificationUrl' => $verificationUrl]
+        );
 
-        return (new MailMessage)
-                    ->subject('Верификация email-адреса')
-                    ->from('info@sajenci-krym.ru')
-                    ->greeting('Здравствуйте!')
-                    ->line('Подтвердите адрес электронной почты.')
-                    ->action('Подтвердить', $verificationUrl)
-                    ->line('Если Вы не создавали учётную запись, то никаких дальнейших действий не требуется.');
+//        return (new MailMessage)
+//                    ->subject('Верификация email-адреса')
+//                    ->from('info@sajenci-krym.ru')
+//                    ->greeting('Здравствуйте, ' . $notifiable->user->name . '!')
+//                    ->line('Подтвердите адрес электронной почты.')
+//                    ->action('Подтвердить', $verificationUrl)
+//                    ->line('Если Вы не создавали учётную запись, то никаких дальнейших действий не требуется.');
     }
 
     /**
@@ -71,16 +52,5 @@ class VerifyEmail extends Notification
             Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
             ['id' => $notifiable->getKey()]
         );
-    }
-
-    /**
-     * Set a callback that should be used when building the notification mail message.
-     *
-     * @param  Closure  $callback
-     * @return void
-     */
-    public static function toMailUsing($callback): void
-    {
-        static::$toMailCallback = $callback;
     }
 }
