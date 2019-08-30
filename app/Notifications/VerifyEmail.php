@@ -50,7 +50,7 @@ class VerifyEmail extends Notification
         }
 
         return (new MailMessage)
-                    ->from('sajenci-krym@yandex.ru')
+                    ->from('info@sajenci-krym.ru')
                     ->line('Подтвердите адрес электронной почты.')
                     ->action('Подтвердить', $verificationUrl)
                     ->line('Если Вы не создавали учётную запись, то никаких дальнейших действий не требуется.');
