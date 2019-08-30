@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Config;
 
 /**
  * Class VerifyEmail
@@ -37,10 +38,12 @@ class VerifyEmail extends Notification
      */
     public function toMail($notifiable): MailMessage
     {
+        $verificationUrl = $this->verificationUrl($notifiable);
+
         return (new MailMessage)
-                    ->from('sajenci-krym@yandex.ru', 'Саженцы в Крыму')
+                    //->from('sajenci-krym@yandex.ru', 'Саженцы в Крыму')
                     ->line('Подтвердите адрес электронной почты.')
-                    ->action('Подтвердить', $this->verificationUrl($notifiable))
+                    ->action('Подтвердить', $verificationUrl)
                     ->line('Если Вы не создавали учётную запись, то никаких дальнейших действий не требуется.');
     }
 
@@ -53,7 +56,9 @@ class VerifyEmail extends Notification
     protected function verificationUrl($notifiable): string
     {
         return URL::temporarySignedRoute(
-            'verification.verify', Carbon::now()->addMinutes(60), ['id' => $notifiable->getKey()]
+            'verification.verify',
+            Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
+            ['id' => $notifiable->getKey()]
         );
     }
 
