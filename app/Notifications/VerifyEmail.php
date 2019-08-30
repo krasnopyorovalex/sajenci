@@ -16,6 +16,18 @@ use Illuminate\Support\Facades\Config;
  */
 class VerifyEmail extends Notification
 {
+
+    /**
+     * Get the notification's channels.
+     *
+     * @param  mixed  $notifiable
+     * @return array|string
+     */
+    public function via($notifiable)
+    {
+        return ['mail'];
+    }
+
     /**
      * Get the mail representation of the notification.
      *
