@@ -41,7 +41,7 @@ class VerifyEmail extends Notification
         return (new MailMessage)
                     ->subject('Верификация email-адреса')
                     ->from('info@sajenci-krym.ru')
-                    ->greeting('Здравствуйте, ' . $notifiable->user->name . '!')
+                    ->greeting('Здравствуйте!')
                     ->line('Подтвердите адрес электронной почты.')
                     ->action('Подтвердить', $verificationUrl)
                     ->line('Если Вы не создавали учётную запись, то никаких дальнейших действий не требуется.');
