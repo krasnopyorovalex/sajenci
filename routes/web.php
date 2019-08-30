@@ -22,7 +22,7 @@ Route::group(['prefix' => 'cabinet', 'middleware' => ['auth', 'verified'], 'as' 
     Route::get('', 'CabinetController@index')->name('index');
 });
 
-Route::group(['middleware' => ['redirector', 'verified']], static function () {
+Route::group(['middleware' => ['redirector']], static function () {
 
     Route::get('/{alias?}/{page?}', 'CatalogController@show')->name('page.show')->where('page', '[0-9]+');
     Route::get('articles/{alias}', 'ArticleController@show')->name('article.show');
