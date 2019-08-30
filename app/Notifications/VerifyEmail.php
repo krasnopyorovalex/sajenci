@@ -38,8 +38,15 @@ class VerifyEmail extends Notification
     {
         $verificationUrl = $this->verificationUrl($notifiable);
 
-        return (new MailMessage)->view(
-            'emails.verified', ['verificationUrl' => $verificationUrl]
+        return (new MailMessage)
+            ->subject('Верификация email-адреса')
+            ->from('info@sajenci-krym.ru')
+            ->greeting('Здравствуйте, ' . $notifiable->user->name . '!')
+            ->view(
+            'emails.verified', [
+                'actionURL' => $verificationUrl,
+                'actionText' => 'Подтвердить'
+            ]
         );
 
 //        return (new MailMessage)
