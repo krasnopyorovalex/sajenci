@@ -50,7 +50,7 @@ class VerifyEmail extends Notification
         }
 
         return (new MailMessage)
-                    ->theme('Верификация email-адреса')
+                    ->subject('Верификация email-адреса')
                     ->from('info@sajenci-krym.ru')
                     ->greeting('Здравствуйте!')
                     ->line('Подтвердите адрес электронной почты.')
