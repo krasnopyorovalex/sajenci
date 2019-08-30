@@ -51,14 +51,13 @@ class VerifyEmail extends Notification
 
         $verificationUrl = $this->verificationUrl($notifiable);
 
-        return (new MailMessage)
+        return (new MailMessage)->view('emails.verified')
             ->subject('Верификация email-адреса')
             ->from('info@sajenci-krym.ru')
             ->greeting('Здравствуйте!')
             ->line('Подтвердите адрес электронной почты.')
             ->action('Подтвердить', $verificationUrl)
-            ->line('Если Вы не создавали учётную запись, то никаких дальнейших действий не требуется.')
-            ->markdown('emails.verified');
+            ->line('Если Вы не создавали учётную запись, то никаких дальнейших действий не требуется.');
     }
 
     /**
