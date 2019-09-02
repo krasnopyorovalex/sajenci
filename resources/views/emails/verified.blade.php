@@ -1,7 +1,11 @@
 @component('mail::message')
 
 @slot('header')
-Интернет-магазин «Саженцы в Крыму»
+    @slot('header')
+        @component('mail::header', ['url' => config('app.url')])
+            Интернет-магазин «Саженцы в Крыму»
+        @endcomponent
+    @endslot
 @endslot
 
 # Здравствуйте!
@@ -31,6 +35,8 @@
 @endslot
 
 @slot('footer')
-&copy; {{ date('Y') }} «Саженцы в Крыму». Все права защищены.
+    @component('mail::footer')
+        © {{ date('Y') }} «Саженцы в Крыму». Все права защищены.
+    @endcomponent
 @endslot
 @endcomponent
