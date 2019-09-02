@@ -1,11 +1,9 @@
 @component('mail::message')
 
 @slot('header')
-@slot('header')
 @component('mail::header', ['url' => config('app.url')])
 Интернет-магазин «Саженцы в Крыму»
 @endcomponent
-@endslot
 @endslot
 
 # Здравствуйте!
