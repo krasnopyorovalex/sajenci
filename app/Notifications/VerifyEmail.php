@@ -9,7 +9,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Config;
-use Closure;
+use Illuminate\Bus\Queueable;
 
 /**
  * Class VerifyEmail
@@ -17,12 +17,18 @@ use Closure;
  */
 class VerifyEmail extends Notification
 {
+
+    use Queueable;
+
     /**
-     * The callback that should be used to build the mail message.
+     * Create a new notification instance.
      *
-     * @var Closure|null
+     * @return void
      */
-    public static $toMailCallback;
+    public function __construct()
+    {
+        //
+    }
 
     /**
      * Get the notification's channels.
@@ -43,12 +49,6 @@ class VerifyEmail extends Notification
      */
     public function toMail($notifiable): MailMessage
     {
-        $verificationUrl = $this->verificationUrl($notifiable);
-
-        if (static::$toMailCallback) {
-            return call_user_func(static::$toMailCallback, $notifiable, $verificationUrl);
-        }
-
         $verificationUrl = $this->verificationUrl($notifiable);
 
         return (new MailMessage)
@@ -73,13 +73,15 @@ class VerifyEmail extends Notification
     }
 
     /**
-     * Set a callback that should be used when building the notification mail message.
+     * Get the array representation of the notification.
      *
-     * @param  Closure  $callback
-     * @return void
+     * @param  mixed  $notifiable
+     * @return array
      */
-    public static function toMailUsing($callback): void
+    public function toArray($notifiable): array
     {
-        static::$toMailCallback = $callback;
+        return [
+            //
+        ];
     }
 }
