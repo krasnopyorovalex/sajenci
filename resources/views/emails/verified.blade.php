@@ -1,11 +1,5 @@
 @component('mail::message')
 
-@slot('header')
-@component('mail::header', ['url' => config('app.url')])
-Интернет-магазин «Саженцы в Крыму»
-@endcomponent
-@endslot
-
 # Здравствуйте!
 
 Подтвердите, пожалуйста, адрес электронной почты.
@@ -30,11 +24,5 @@
             'actionURL' => $verificationUrl,
         ]
     )
-@endslot
-
-@slot('footer')
-@component('mail::footer')
-© {{ date('Y') }} «Саженцы в Крыму». Все права защищены.
-@endcomponent
 @endslot
 @endcomponent
