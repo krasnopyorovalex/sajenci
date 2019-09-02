@@ -1,8 +1,12 @@
 @component('mail::message')
 
+@slot('header')
+Интернет-магазин «Саженцы в Крыму»
+@endslot
+
 # Здравствуйте!
 
-Подтвердите адрес электронной почты.
+Подтвердите, пожалуйста, адрес электронной почты.
 
 {{-- Action Button --}}
 @component('mail::button', ['url' => $verificationUrl, 'color' => 'primary'])
@@ -11,7 +15,7 @@
 
 Если Вы не создавали учётную запись, то никаких дальнейших действий не требуется.
 
-С уважением,
+С уважением,<br/>
 «Саженцы в Крыму»
 
 {{-- Subcopy --}}
@@ -24,5 +28,9 @@
             'actionURL' => $verificationUrl,
         ]
     )
+@endslot
+
+@slot('footer')
+&copy; {{ date('Y') }} «Саженцы в Крыму». Все права защищены.
 @endslot
 @endcomponent
