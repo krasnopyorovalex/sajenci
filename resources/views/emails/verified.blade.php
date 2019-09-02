@@ -1,8 +1,5 @@
 @component('mail::message')
-    {{-- Greeting --}}
-    @if (! empty($greeting))
-        # Здравствуйте!
-    @endif
+    # Здравствуйте!
 
     Подтвердите адрес электронной почты.
 
@@ -22,8 +19,8 @@
             "Если у вас возникли проблемы, нажав кнопку \":actionText\", скопируйте и вставьте URL ниже\n".
             'в Ваш браузер: [:actionURL](:actionURL)',
             [
-                'actionText' => $actionText,
-                'actionURL' => $actionUrl,
+                'actionText' => 'Подтвердить',
+                'actionURL' => $verificationUrl,
             ]
         )
     @endslot
