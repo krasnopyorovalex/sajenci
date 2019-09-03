@@ -14,10 +14,5 @@ return [
     */
 
     'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'Regards' => 'С уважением',
-    "If you’re having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
-    'into your web browser: [:actionURL](:actionURL)' => "Если у вас возникли проблемы, нажав кнопку \":actionText\", скопируйте и вставьте URL ниже\n".
-        'в адресную строку Вашего браузера: [:actionURL](:actionURL)'
-
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.'
 ];
