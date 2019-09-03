@@ -48,7 +48,8 @@ class ResetPasswordNotification extends Notification
             ->line('Мы получили запрос на сброс пароля для Вашей учетной записи.')
             ->action('Сбросить пароль', url(config('app.url').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false)))
             ->line(Lang::getFromJson('Срок действия этой ссылки для сброса пароля истекает через :count мин.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
-            ->line('Если Вы не запрашивали сброс пароля, никаких дальнейших действий не требуется.');
+            ->line('Если Вы не запрашивали сброс пароля, никаких дальнейших действий не требуется.')
+            ->markdown('emails.reset');
     }
 
     /**

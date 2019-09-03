@@ -1,26 +1,63 @@
 @component('mail::message')
+{{-- Greeting --}}
+@if (! empty($greeting))
+# {{ $greeting }}
+@else
+@if ($level === 'error')
+# @lang('Whoops!')
+@else
+# @lang('Hello!')
+@endif
+@endif
 
-# Здравствуйте!
+{{-- Intro Lines --}}
+@foreach ($introLines as $line)
+{{ $line }}
 
-Нажмите на кнопку для сброса пароля
+@endforeach
 
 {{-- Action Button --}}
-@component('mail::button', ['url' => $resetUrl, 'color' => 'green'])
-Сбросить
+@isset($actionText)
+<?php
+    switch ($level) {
+        case 'success':
+        case 'error':
+            $color = $level;
+            break;
+        default:
+            $color = 'primary';
+    }
+?>
+@component('mail::button', ['url' => $actionUrl, 'color' => $color])
+{{ $actionText }}
 @endcomponent
+@endisset
 
-С уважением,<br/>
-«Саженцы в Крыму»
+{{-- Outro Lines --}}
+@foreach ($outroLines as $line)
+{{ $line }}
+
+@endforeach
+
+{{-- Salutation --}}
+@if (! empty($salutation))
+{{ $salutation }}
+@else
+С уважением,<br>
+{{ config('app.name') }}
+@endif
 
 {{-- Subcopy --}}
+@isset($actionText)
 @slot('subcopy')
-    @lang(
-        "Если у вас возникли проблемы, нажав кнопку \":actionText\", скопируйте и вставьте URL ниже\n".
-        'в Ваш браузер: [:actionURL](:actionURL)',
-        [
-            'actionText' => 'Сбросить',
-            'actionURL' => $resetUrl,
-        ]
-    )
+@lang(
+    "Если у вас возникли проблемы, нажав кнопку \":actionText\", скопируйте и вставьте URL ниже\n".
+    'в Ваш браузер: [:actionURL](:actionURL)',
+    [
+        'actionText' => $actionText,
+        'actionURL' => $actionURL,
+    ]
+)
 @endslot
+@endisset
 @endcomponent
