@@ -5,6 +5,7 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\Facades\Lang;
 
 class ResetPasswordNotification extends Notification
 {
@@ -43,9 +44,10 @@ class ResetPasswordNotification extends Notification
     {
         return (new MailMessage)
             ->subject('Уведомление о сбросе пароля')
-            ->line('Вы получили это письмо, т.к. мы получили запрос на сброс пароля для Вашей учетной записи.')
+            ->greeting('Здравствуйте!')
+            ->line('Мы получили запрос на сброс пароля для Вашей учетной записи.')
             ->action('Сбросить пароль', url(config('app.url').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false)))
-            ->line('Срок действия этой ссылки для сброса пароля истекает через :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')])
+            ->line(Lang::getFromJson('Срок действия этой ссылки для сброса пароля истекает через :count мин.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
             ->line('Если Вы не запрашивали сброс пароля, никаких дальнейших действий не требуется.');
     }
 
