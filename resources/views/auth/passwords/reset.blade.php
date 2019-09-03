@@ -47,7 +47,7 @@
                             <svg>
                                 <use xlink:href="{{ asset('img/sprites/sprite.svg#reset') }}"></use>
                             </svg>
-                            Сбросить пароль
+                            Сбросить
                         </button>
                     </div>
                 </form>
