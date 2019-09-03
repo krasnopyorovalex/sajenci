@@ -48,6 +48,14 @@
                             </div>
                         @endif
                     </div>
+                    <div class="single_block back">
+                        <a href="{{ route('page.show') }}" class="btn btn_send">
+                            <svg>
+                                <use xlink:href="{{ asset('img/sprites/sprite.svg#return') }}"></use>
+                            </svg>
+                            Вернуться
+                        </a>
+                    </div>
                 </form>
             </div>
         </div>
