@@ -11,10 +11,10 @@
         <div class="row">
             <div class="col-12">
 
-                <form action="{{ route('password.email') }}" method="post">
+                <form action="{{ route('password.email') }}" method="post" class="recovery">
                     @csrf
 
-                    <div class="title">Форма сброса пароля</div>
+                    <div class="title">Форма восстановления пароля</div>
 
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
