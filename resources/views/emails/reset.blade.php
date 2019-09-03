@@ -55,7 +55,7 @@
     'в Ваш браузер: [:actionURL](:actionURL)',
     [
         'actionText' => $actionText,
-        'actionURL' => $actionURL,
+        'actionURL' => $actionUrl,
     ]
 )
 @endslot
