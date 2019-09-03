@@ -53,7 +53,6 @@ class VerifyEmail extends Notification
 
         return (new MailMessage)
             ->subject('Верификация email-адреса')
-            ->from(env('MAIL_ADDRESS_FROM'), 'Интернет-магазин «Саженцы в Крыму»')
             ->markdown('emails.verified', ['verificationUrl' => $verificationUrl]);
     }
 
