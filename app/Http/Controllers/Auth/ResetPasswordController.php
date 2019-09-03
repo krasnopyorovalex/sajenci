@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Notifications\Notifiable;
 
 class ResetPasswordController extends Controller
 {
+    use Notifiable;
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
