@@ -47,11 +47,6 @@
                     <div class="single_block">
                         <label for="password-confirm_field">Повторите Ваш пароль:</label>
                         <input type="password" name="password_confirmation" id="password-confirm_field" required autocomplete="new-password" minlength="8">
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                                <b>{{ $message }}</b>
-                            </span>
-                        @enderror
                     </div>
 
                     <div class="single_block submit">
