@@ -11,14 +11,14 @@
         <div class="row">
             <div class="col-12">
 
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
-
                 <form action="{{ route('password.email') }}" method="post">
                     @csrf
+
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
                     <div class="title">Форма сброса пароля</div>
                     <div class="single_block">

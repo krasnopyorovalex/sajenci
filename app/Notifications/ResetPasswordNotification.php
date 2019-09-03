@@ -42,9 +42,11 @@ class ResetPasswordNotification extends Notification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Сброс пароля')
-            ->from(env('MAIL_ADDRESS_FROM'), 'Интернет-магазин «Саженцы в Крыму»');
-            //->markdown('emails.reset', ['resetUrl' => $this->token]);
+            ->subject('Уведомление о сбросе пароля')
+            ->line('Вы получили это письмо, т.к. мы получили запрос на сброс пароля для Вашей учетной записи.')
+            ->action('Сбросить пароль', url(config('app.url').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false)))
+            ->line('Срок действия этой ссылки для сброса пароля истекает через :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')])
+            ->line('Если Вы не запрашивали сброс пароля, никаких дальнейших действий не требуется.');
     }
 
     /**
