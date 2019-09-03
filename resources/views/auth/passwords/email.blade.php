@@ -14,13 +14,17 @@
                 <form action="{{ route('password.email') }}" method="post">
                     @csrf
 
+                    <div class="title">Форма сброса пароля</div>
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
+                            <svg>
+                                <use xlink:href="../img/sprites/sprite.svg#alert"></use>
+                            </svg>
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    <div class="title">Форма сброса пароля</div>
                     <div class="single_block">
                         <label for="email_field">Адрес электронной почты (e-mail)</label>
                         <input type="email" name="email" id="email_field" autocomplete="off" required value="{{ old('email') }}" autofocus>
