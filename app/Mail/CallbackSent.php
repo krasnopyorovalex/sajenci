@@ -30,8 +30,7 @@ class CallbackSent extends Mailable
      */
     public function build(): CallbackSent
     {
-        return $this->from(env('MAIL_ADDRESS_FROM'))
-            ->subject('Форма: обратная связь')
+        return $this->subject('Форма: обратная связь')
             ->view('emails.callback', [
                 'data' => $this->data
             ]);
