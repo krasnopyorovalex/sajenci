@@ -89,4 +89,13 @@ class Catalog extends Model
     {
         return route('page.show', $this->alias);
     }
+
+    /**
+     * @param string $alias
+     * @return bool
+     */
+    public function isActive(string $alias): bool
+    {
+        return $alias === $this->alias || in_array($alias, $this->catalogs->pluck('alias')->toArray(), true);
+    }
 }

@@ -17,25 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-3 align_fs">
-                    <div class="categories">
-                        <ul>
-                            <li><a href="catalog.html">Саженцы черешни</a></li>
-                            <li><a href="catalog.html">Саженцы яблонь</a></li>
-                            <li><a href="catalog.html">Саженцы клубники</a></li>
-                            <li class="active">
-                                <a href="catalog.html">Саженцы винограда</a>
-                                <ul>
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                    <li class="active"><a href="#">Подкатегория 2</a></li>
-                                    <li><a href="#">Подкатегория 3</a></li>
-                                    <li><a href="#">Подкатегория 4</a></li>
-                                    <li><a href="#">Подкатегория 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="catalog.html">Саженцы груши</a></li>
-                        </ul>
-                    </div>
-
+                    @include('layouts.composers.catalog_left_sb')
                 </div>
                 <div class="col-9 align_fs">
                     <div class="breadcrumbs">
@@ -50,14 +32,13 @@
 
                     @if(count($products))
                     <div class="sort">
-                        <form action="#">
+                        <form action="{{ request()->getUri() }}" method="get">
                             <div class="single_block">
                                 <label for="sort_field">Сортировать по:</label>
-                                <select name="sort_by" id="sort_field">
-                                    <option value="" disabled="" selected>Не выбрано</option>
-                                    <option value="{{ request()->getUri() }}?price=asc">По убыванию цены</option>
-                                    <option value="{{ request()->getUri() }}?price=desc">По возрастанию цены</option>
-                                    <option value="{{ request()->getUri() }}?popularity=1">По популярности</option>
+                                <select id="sort_field" name="sort">
+                                    <option value="">Не выбрано</option>
+                                    <option value="price_desc" {{ request('sort') === 'price_desc' ? 'selected' : '' }}>По убыванию цены</option>
+                                    <option value="price_asc" {{ request('sort') === 'price_asc' ? 'selected' : '' }}>По возрастанию цены</option>
                                 </select>
                             </div>
                         </form>

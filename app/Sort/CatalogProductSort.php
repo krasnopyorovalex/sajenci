@@ -18,7 +18,12 @@ class CatalogProductSort extends Sort
      *
      * @var array
      */
-    protected $sorts = ['price'];
+    protected $sorts = ['sort'];
+
+    /**
+     * Allowed types by ORDER BY
+     */
+    private const ORDER_TYPES = ['asc', 'desc'];
 
     /**
      * Sort the query by a given price.
@@ -26,8 +31,14 @@ class CatalogProductSort extends Sort
      * @param string $value
      * @return Builder
      */
-    protected function price(string $value): Builder
+    protected function sort(string $value): Builder
     {
-        return $this->builder->orderBy('price', $value);
+        [$field, $orderType] = explode('_', $value);
+
+        if ( !in_array($orderType, self::ORDER_TYPES, true)) {
+            return $this->builder;
+        }
+
+        return $this->builder->orderBy($field, $orderType);
     }
 }
