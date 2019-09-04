@@ -48,6 +48,22 @@
                         </ul>
                     </div>
 
+                    @if(count($products))
+                    <div class="sort">
+                        <form action="#">
+                            <div class="single_block">
+                                <label for="sort_field">Сортировать по:</label>
+                                <select name="sort_by" id="sort_field">
+                                    <option value="" disabled="" selected>Не выбрано</option>
+                                    <option value="{{ request()->getUri() }}?price=asc">По убыванию цены</option>
+                                    <option value="{{ request()->getUri() }}?price=desc">По возрастанию цены</option>
+                                    <option value="{{ request()->getUri() }}?popularity=1">По популярности</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    @endif
+
                     <h1>{{ $catalog->name }}</h1>
                     <div class="row products">
                         <div class="col-4">

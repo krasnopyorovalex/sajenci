@@ -40,7 +40,3 @@ Route::group(['prefix' => '_root', 'middleware' => ['auth', 'verified'], 'namesp
         require $item;
     }
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

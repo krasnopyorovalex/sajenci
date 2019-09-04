@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Sort\CatalogProductSort;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -38,6 +40,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CatalogProduct whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CatalogProduct whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\CatalogProduct whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\CatalogProduct sort($value)
  * @mixin \Eloquent
  */
 class CatalogProduct extends Model
@@ -116,4 +119,17 @@ class CatalogProduct extends Model
     {
         return $key === $this->label;
     }
+
+    /**
+     * Apply all relevant thread sorts.
+     *
+     * @param Builder $query
+     * @param CatalogProductSort $sort
+     * @return Builder
+     */
+    public function scopeSort($query, CatalogProductSort $sort): Builder
+    {
+        return $sort->apply($query);
+    }
+
 }
