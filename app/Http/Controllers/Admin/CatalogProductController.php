@@ -67,10 +67,10 @@ class CatalogProductController extends Controller
     }
 
     /**
-     * @param $id
+     * @param int $id
      * @return Factory|View
      */
-    public function edit($id)
+    public function edit(int $id)
     {
         $catalogProduct = $this->dispatch(new GetCatalogProductByIdQuery($id));
 
