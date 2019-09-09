@@ -35,6 +35,7 @@ class CreateArticleCommand
     {
         $article = new Article();
         $article->fill($this->request->all());
+        $article->published_at = date('Y-m-d');
         $article->save();
 
         if ($this->request->has('image')) {
