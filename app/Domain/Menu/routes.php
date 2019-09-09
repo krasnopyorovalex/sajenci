@@ -9,5 +9,4 @@ Route::group(['prefix' => 'menus', 'as' => 'menus.'], static function () {
     Route::get('{id}/edit', 'MenuController@edit')->name('edit');
     Route::put('{id}', 'MenuController@update')->name('update');
     Route::delete('{id}', 'MenuController@destroy')->name('destroy');
-
 });

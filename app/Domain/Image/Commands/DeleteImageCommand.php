@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Image\Commands;
+namespace Domain\Image\Commands;
 
 use App\Image;
-use Storage;
 use Exception;
+use Storage;
 
 /**
  * Class DeleteImageCommand
- * @package App\Domain\Image\Commands
+ * @package Domain\Image\Commands
  */
 class DeleteImageCommand
 {
@@ -36,5 +36,4 @@ class DeleteImageCommand
 
         return $this->image->delete();
     }
-
 }

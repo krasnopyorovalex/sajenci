@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Page\Commands;
+namespace Domain\Page\Commands;
 
 use App\Http\Requests\Request;
 use App\Page;
@@ -10,7 +10,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class CreatePageCommand
- * @package App\Domain\Page\Commands
+ * @package Domain\Page\Commands
  */
 class CreatePageCommand
 {
@@ -36,5 +36,4 @@ class CreatePageCommand
         $page->fill($this->request->all());
         return $page->save();
     }
-
 }

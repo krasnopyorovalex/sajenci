@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\SliderImage\Queries;
+namespace Domain\SliderImage\Queries;
 
 use App\SliderImage;
 
 /**
  * Class GetSliderImageByIdQuery
- * @package App\Domain\SliderImage\Queries
+ * @package Domain\SliderImage\Queries
  */
 class GetSliderImageByIdQuery
 {

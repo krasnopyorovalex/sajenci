@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\Info\Commands\CreateInfoCommand;
-use App\Domain\Info\Commands\DeleteInfoCommand;
-use App\Domain\Info\Commands\UpdateInfoCommand;
-use App\Domain\Info\Queries\GetAllInfosQuery;
-use App\Domain\Info\Queries\GetInfoByIdQuery;
+use Domain\Info\Commands\CreateInfoCommand;
+use Domain\Info\Commands\DeleteInfoCommand;
+use Domain\Info\Commands\UpdateInfoCommand;
+use Domain\Info\Queries\GetAllInfosQuery;
+use Domain\Info\Queries\GetInfoByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\Info\Requests\CreateInfoRequest;
 use Domain\Info\Requests\UpdateInfoRequest;

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Article\DTO;
+namespace Domain\Article\DTO;
 
 use App\Article;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Class AdjoiningResult
- * @package App\Domain\Article\DTO
+ * @package Domain\Article\DTO
  */
 class AdjoiningResult
 {

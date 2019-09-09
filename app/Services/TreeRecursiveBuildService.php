@@ -51,8 +51,7 @@ class TreeRecursiveBuildService
         $originArray = count($helpArray) ? $helpArray : $this->rootChildArray;
 
         foreach ($this->rootChildArray as $item) {
-            if ( ! is_array($item)) {
-
+            if (! is_array($item)) {
                 $html .= '<option value="' . $item->id . ' " ' . ($this->selected == $item->id ? 'selected=""' : '') . ' > ' . $step . $item->name . '</option>' . PHP_EOL;
 
                 if (isset($this->rootChildArray['child_' . $item->id])) {

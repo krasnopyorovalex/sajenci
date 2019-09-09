@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Container;
 use App\Http\ViewComposers\MenuComposer;
+use Illuminate\Contracts\Container;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * Class MenuServiceProvider

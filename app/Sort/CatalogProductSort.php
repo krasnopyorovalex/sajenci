@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Sort;
 
-
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -35,7 +34,7 @@ class CatalogProductSort extends Sort
     {
         [$field, $orderType] = explode('_', $value);
 
-        if ( !in_array($orderType, self::ORDER_TYPES, true)) {
+        if (!in_array($orderType, self::ORDER_TYPES, true)) {
             return $this->builder;
         }
 

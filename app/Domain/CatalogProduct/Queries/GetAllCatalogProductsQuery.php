@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\CatalogProduct\Queries;
+namespace Domain\CatalogProduct\Queries;
 
 use App\Catalog;
 use App\CatalogProduct;
@@ -10,7 +10,7 @@ use App\CatalogProduct;
 /**
  * Class GetAllCatalogsQuery
  * @property Catalog catalog
- * @package App\Domain\CatalogProduct\Queries
+ * @package Domain\CatalogProduct\Queries
  */
 class GetAllCatalogProductsQuery
 {

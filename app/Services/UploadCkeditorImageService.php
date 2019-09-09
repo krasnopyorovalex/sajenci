@@ -24,7 +24,6 @@ class UploadCkeditorImageService
             $url = \Storage::url($path);
                 
             return '<script type="text/javascript">window.parent.CKEDITOR.tools.callFunction("'.$callback.'", "'.$url.'", "'.$message.'" );</script>';
-
         } catch (\Exception $e) {
             return ['message' => $e->getMessage()];
         }

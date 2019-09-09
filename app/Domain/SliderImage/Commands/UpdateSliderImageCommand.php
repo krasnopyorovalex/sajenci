@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\SliderImage\Commands;
+namespace Domain\SliderImage\Commands;
 
-use App\Domain\SliderImage\Queries\GetSliderImageByIdQuery;
+use Domain\SliderImage\Queries\GetSliderImageByIdQuery;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdateSliderImageCommand
- * @package App\Domain\SliderImage\Commands
+ * @package Domain\SliderImage\Commands
  */
 class UpdateSliderImageCommand
 {
-
     use DispatchesJobs;
 
     private $request;
@@ -40,5 +39,4 @@ class UpdateSliderImageCommand
 
         return $image->update($this->request->all());
     }
-
 }

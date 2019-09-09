@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Info\Commands;
+namespace Domain\Info\Commands;
 
-use App\Info;
-use App\Domain\Image\Commands\UploadImageCommand;
+use Domain\Image\Commands\UploadImageCommand;
 use App\Http\Requests\Request;
+use App\Info;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class CreateInfoCommand
- * @package App\Domain\Info\Commands
+ * @package Domain\Info\Commands
  */
 class CreateInfoCommand
 {
@@ -44,5 +44,4 @@ class CreateInfoCommand
 
         return true;
     }
-
 }

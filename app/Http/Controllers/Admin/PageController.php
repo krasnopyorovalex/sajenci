@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\Page\Commands\CreatePageCommand;
-use App\Domain\Page\Commands\DeletePageCommand;
-use App\Domain\Page\Commands\UpdatePageCommand;
-use App\Domain\Page\Queries\GetAllPagesQuery;
-use App\Domain\Page\Queries\GetPageByIdQuery;
-use App\Domain\Slider\Queries\GetAllSlidersQuery;
+use Domain\Page\Commands\CreatePageCommand;
+use Domain\Page\Commands\DeletePageCommand;
+use Domain\Page\Commands\UpdatePageCommand;
+use Domain\Page\Queries\GetAllPagesQuery;
+use Domain\Page\Queries\GetPageByIdQuery;
+use Domain\Slider\Queries\GetAllSlidersQuery;
 use App\Http\Controllers\Controller;
 use App\Page;
 use Domain\Page\Requests\CreatePageRequest;
 use Domain\Page\Requests\UpdatePageRequest;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 /**
  * Class PageController

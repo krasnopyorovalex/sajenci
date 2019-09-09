@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\Slider\Commands\CreateSliderCommand;
-use App\Domain\Slider\Commands\DeleteSliderCommand;
-use App\Domain\Slider\Commands\UpdateSliderCommand;
-use App\Domain\Slider\Queries\GetAllSlidersQuery;
-use App\Domain\Slider\Queries\GetSliderByIdQuery;
+use Domain\Slider\Commands\CreateSliderCommand;
+use Domain\Slider\Commands\DeleteSliderCommand;
+use Domain\Slider\Commands\UpdateSliderCommand;
+use Domain\Slider\Queries\GetAllSlidersQuery;
+use Domain\Slider\Queries\GetSliderByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\Slider\Requests\CreateSliderRequest;
 use Domain\SliderImage\Requests\UpdateSliderImageRequest;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 /**
  * Class SliderController

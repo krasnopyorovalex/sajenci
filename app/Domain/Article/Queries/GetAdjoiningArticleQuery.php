@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Article\Queries;
+namespace Domain\Article\Queries;
 
 use App\Article;
-use App\Domain\Article\DTO\AdjoiningResult;
+use Domain\Article\DTO\AdjoiningResult;
 
 /**
  * Class GetAdjoiningArticleQuery
- * @package App\Domain\Article\Queries
+ * @package Domain\Article\Queries
  */
 class GetAdjoiningArticleQuery
 {

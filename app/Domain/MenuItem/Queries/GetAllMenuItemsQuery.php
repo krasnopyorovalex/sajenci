@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\MenuItem\Queries;
+namespace Domain\MenuItem\Queries;
 
 use App\MenuItem;
 
 /**
  * Class GetAllMenuItemsQuery
- * @package App\Domain\MenuItem\Queries
+ * @package Domain\MenuItem\Queries
  */
 class GetAllMenuItemsQuery
 {
-
-    private  $id;
-    private  $excludeMenuItem;
+    private $id;
+    private $excludeMenuItem;
 
     /**
      * GetAllMenuItemsQuery constructor.
@@ -32,9 +31,9 @@ class GetAllMenuItemsQuery
      */
     public function handle()
     {
-        $menuItems = MenuItem::with(['menuItems' => function($query) {
+        $menuItems = MenuItem::with(['menuItems' => function ($query) {
             return ($this->excludeMenuItem
-                ? ($query->where('id', '!=', $this->excludeMenuItem->id)->with(['menuItems' => function($query) {
+                ? ($query->where('id', '!=', $this->excludeMenuItem->id)->with(['menuItems' => function ($query) {
                     return ($this->excludeMenuItem
                         ? $query->where('id', '!=', $this->excludeMenuItem->id)
                         : []);

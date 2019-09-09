@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Article\Commands;
+namespace Domain\Article\Commands;
 
 use App\Article;
-use App\Domain\Image\Commands\UploadImageCommand;
+use Domain\Image\Commands\UploadImageCommand;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class CreateArticleCommand
- * @package App\Domain\Article\Commands
+ * @package Domain\Article\Commands
  */
 class CreateArticleCommand
 {
@@ -44,5 +44,4 @@ class CreateArticleCommand
 
         return true;
     }
-
 }

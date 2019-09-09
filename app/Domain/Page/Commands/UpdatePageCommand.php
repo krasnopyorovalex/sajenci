@@ -2,20 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Page\Commands;
+namespace Domain\Page\Commands;
 
-use App\Domain\Page\Queries\GetPageByIdQuery;
+use Domain\Page\Queries\GetPageByIdQuery;
 use App\Events\RedirectDetected;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdatePageCommand
- * @package App\Domain\Page\Commands
+ * @package Domain\Page\Commands
  */
 class UpdatePageCommand
 {
-
     use DispatchesJobs;
 
     private $request;
@@ -46,5 +45,4 @@ class UpdatePageCommand
 
         return $page->update($this->request->all());
     }
-
 }

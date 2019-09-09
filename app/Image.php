@@ -31,7 +31,6 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  */
 class Image extends Model
 {
-
     public $timestamps = false;
 
     /**

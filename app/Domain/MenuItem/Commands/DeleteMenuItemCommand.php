@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\MenuItem\Commands;
+namespace Domain\MenuItem\Commands;
 
-use App\Domain\MenuItem\Queries\GetMenuItemByIdQuery;
+use Domain\MenuItem\Queries\GetMenuItemByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class DeleteMenuItemCommand
- * @package App\Domain\MenuItem\Commands
+ * @package Domain\MenuItem\Commands
  */
 class DeleteMenuItemCommand
 {
-
     use DispatchesJobs;
 
     private $id;
@@ -38,5 +37,4 @@ class DeleteMenuItemCommand
 
         return $menuItem->delete();
     }
-
 }

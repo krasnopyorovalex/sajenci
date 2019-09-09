@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Redirect\Queries;
-
+namespace Domain\Redirect\Queries;
 
 use App\Redirect;
 
 /**
  * Class GetAllRedirectsQuery
- * @package App\Domain\Redirect\Queries
+ * @package Domain\Redirect\Queries
  */
 class GetAllRedirectsQuery
 {

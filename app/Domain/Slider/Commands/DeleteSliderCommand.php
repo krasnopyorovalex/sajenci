@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Slider\Commands;
+namespace Domain\Slider\Commands;
 
-use App\Domain\Slider\Queries\GetSliderByIdQuery;
+use Domain\Slider\Queries\GetSliderByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class DeleteSliderCommand
- * @package App\Domain\Slider\Commands
+ * @package Domain\Slider\Commands
  */
 class DeleteSliderCommand
 {
-
     use DispatchesJobs;
 
     private $id;
@@ -40,5 +39,4 @@ class DeleteSliderCommand
 
         return $slider->delete();
     }
-
 }

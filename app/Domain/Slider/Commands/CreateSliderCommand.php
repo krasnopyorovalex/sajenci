@@ -2,17 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Slider\Commands;
+namespace Domain\Slider\Commands;
 
 use App\Slider;
 
 /**
  * Class CreateSliderCommand
- * @package App\Domain\Slider\Commands
+ * @package Domain\Slider\Commands
  */
 class CreateSliderCommand
 {
-
     private $request;
 
     /**
@@ -34,5 +33,4 @@ class CreateSliderCommand
 
         return $slider->save();
     }
-
 }

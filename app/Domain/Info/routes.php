@@ -9,5 +9,4 @@ Route::group(['prefix' => 'infos', 'as' => 'infos.'], function () {
     Route::get('{id}/edit', 'InfoController@edit')->name('edit');
     Route::put('{id}', 'InfoController@update')->name('update');
     Route::delete('{id}', 'InfoController@destroy')->name('destroy');
-
 });

@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\Catalog\Commands\CreateCatalogCommand;
-use App\Domain\Catalog\Commands\DeleteCatalogCommand;
-use App\Domain\Catalog\Commands\UpdateCatalogCommand;
-use App\Domain\Catalog\Queries\GetAllCatalogsNotParentQuery;
-use App\Domain\Catalog\Queries\GetAllCatalogsQuery;
-use App\Domain\Catalog\Queries\GetCatalogByIdQuery;
+use Domain\Catalog\Commands\CreateCatalogCommand;
+use Domain\Catalog\Commands\DeleteCatalogCommand;
+use Domain\Catalog\Commands\UpdateCatalogCommand;
+use Domain\Catalog\Queries\GetAllCatalogsNotParentQuery;
+use Domain\Catalog\Queries\GetAllCatalogsQuery;
+use Domain\Catalog\Queries\GetCatalogByIdQuery;
 use App\Http\Controllers\Controller;
 use App\Services\TreeRecursiveBuildService;
 use Domain\Catalog\Requests\CreateCatalogRequest;
 use Domain\Catalog\Requests\UpdateCatalogRequest;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 /**
  * @property  treeRecursiveBuildService

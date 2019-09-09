@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\ViewComposers;
 
-use App\Domain\Catalog\Queries\GetAllCatalogsWithoutChildQuery;
+use Domain\Catalog\Queries\GetAllCatalogsWithoutChildQuery;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -14,7 +14,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class CatalogComposer
 {
-
     use DispatchesJobs;
 
     /**

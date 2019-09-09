@@ -131,5 +131,4 @@ class CatalogProduct extends Model
     {
         return $sort->apply($query);
     }
-
 }

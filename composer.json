@@ -4,7 +4,8 @@
     "description": "Sajenci Crimea.",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "krasber"
     ],
     "license": "MIT",
     "require": {
@@ -38,21 +39,21 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Domain\\": "app/Domain"
         },
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Domain/helpers.php"
         ]
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/",
-            "Domain\\": "app/Domain"
-        },
-        "files": [
-            "app/Domain/helpers.php"
-        ]
+            "Tests\\": "tests/"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

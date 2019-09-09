@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\SliderImage\Commands;
+namespace Domain\SliderImage\Commands;
 
-use App\Domain\SliderImage\Queries\GetSliderImageByIdQuery;
+use Domain\SliderImage\Queries\GetSliderImageByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 
 /**
  * Class UpdatePositionsSliderImageCommand
- * @package App\Domain\SliderImage\Commands
+ * @package Domain\SliderImage\Commands
  */
 class UpdatePositionsSliderImageCommand
 {
-
     use DispatchesJobs;
 
     private $request;
@@ -32,7 +31,7 @@ class UpdatePositionsSliderImageCommand
     {
         $data = $this->request->post()['data'];
 
-        if ( is_array($data)) {
+        if (is_array($data)) {
             foreach ($data as $position => $imageId) {
                 $image = $this->dispatch(new GetSliderImageByIdQuery($imageId));
                 $image->pos = $position;

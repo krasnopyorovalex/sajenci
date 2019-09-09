@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Domain\Article\Queries\GetAllArticlesQuery;
-use App\Domain\Catalog\Queries\GetAllCatalogsWithoutChildQuery;
-use App\Domain\Info\Queries\GetAllInfosQuery;
+use Domain\Article\Queries\GetAllArticlesQuery;
+use Domain\Catalog\Queries\GetAllCatalogsWithoutChildQuery;
+use Domain\Info\Queries\GetAllInfosQuery;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -49,5 +49,4 @@ class TextParserService
             $entity->text
         );
     }
-
 }

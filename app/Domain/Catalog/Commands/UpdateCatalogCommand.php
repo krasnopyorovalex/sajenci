@@ -2,23 +2,22 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Catalog\Commands;
+namespace Domain\Catalog\Commands;
 
-use App\Domain\Catalog\Queries\GetCatalogByIdQuery;
-use App\Domain\Image\Commands\DeleteImageCommand;
-use App\Domain\Image\Commands\UploadImageCommand;
+use App\Catalog;
+use Domain\Catalog\Queries\GetCatalogByIdQuery;
+use Domain\Image\Commands\DeleteImageCommand;
+use Domain\Image\Commands\UploadImageCommand;
 use App\Events\RedirectDetected;
 use App\Http\Requests\Request;
-use App\Catalog;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdateCatalogCommand
- * @package App\Domain\Catalog\Commands
+ * @package Domain\Catalog\Commands
  */
 class UpdateCatalogCommand
 {
-
     use DispatchesJobs;
 
     private $request;
@@ -56,5 +55,4 @@ class UpdateCatalogCommand
 
         return $catalog->update($this->request->all());
     }
-
 }

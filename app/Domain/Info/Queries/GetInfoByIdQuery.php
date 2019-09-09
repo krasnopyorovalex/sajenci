@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Info\Queries;
+namespace Domain\Info\Queries;
 
 use App\Info;
 
 /**
  * Class GetInfoByIdQuery
- * @package App\Domain\Info\Queries
+ * @package Domain\Info\Queries
  */
 class GetInfoByIdQuery
 {

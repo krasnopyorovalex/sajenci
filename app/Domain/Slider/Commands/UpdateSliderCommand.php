@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Slider\Commands;
+namespace Domain\Slider\Commands;
 
-use App\Domain\Slider\Queries\GetSliderByIdQuery;
+use Domain\Slider\Queries\GetSliderByIdQuery;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdateSliderCommand
- * @package App\Domain\Slider\Commands
+ * @package Domain\Slider\Commands
  */
 class UpdateSliderCommand
 {
-
     use DispatchesJobs;
 
     private $request;
@@ -40,5 +39,4 @@ class UpdateSliderCommand
 
         return $page->update($this->request->all());
     }
-
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\Redirect\Commands\CreateRedirectCommand;
-use App\Domain\Redirect\Commands\DeleteRedirectCommand;
-use App\Domain\Redirect\Commands\UpdateRedirectCommand;
-use App\Domain\Redirect\Queries\GetAllRedirectsQuery;
-use App\Domain\Redirect\Queries\GetRedirectByIdQuery;
+use Domain\Redirect\Commands\CreateRedirectCommand;
+use Domain\Redirect\Commands\DeleteRedirectCommand;
+use Domain\Redirect\Commands\UpdateRedirectCommand;
+use Domain\Redirect\Queries\GetAllRedirectsQuery;
+use Domain\Redirect\Queries\GetRedirectByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\Redirect\Requests\CreateRedirectRequest;
 use Domain\Redirect\Requests\UpdateRedirectRequest;

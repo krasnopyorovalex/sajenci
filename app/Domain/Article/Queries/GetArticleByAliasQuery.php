@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Article\Queries;
+namespace Domain\Article\Queries;
 
 use App\Article;
 
 /**
  * Class GetArticleByAliasQuery
- * @package App\Domain\Article\Queries
+ * @package Domain\Article\Queries
  */
 class GetArticleByAliasQuery
 {

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Info\Queries;
+namespace Domain\Info\Queries;
 
 use App\Info;
 
 /**
  * Class GetAllInfosQuery
- * @package App\Domain\Info\Queries
+ * @package Domain\Info\Queries
  */
 class GetAllInfosQuery
 {
@@ -45,7 +45,7 @@ class GetAllInfosQuery
         }
 
         if ($this->limit) {
-            return $infos->paginate($this->limit, array('*'), 'page', (int)request('page'));
+            return $infos->paginate($this->limit, ['*'], 'page', (int)request('page'));
         }
 
         return $infos->get();

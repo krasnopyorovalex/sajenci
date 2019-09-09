@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Catalog;
-use App\Domain\Catalog\Queries\GetCatalogByAliasQuery;
-use App\Domain\CatalogProduct\Queries\GetAllCatalogProductsWithSortQuery;
+use Domain\Catalog\Queries\GetCatalogByAliasQuery;
+use Domain\CatalogProduct\Queries\GetAllCatalogProductsWithSortQuery;
 use App\Services\CanonicalService;
 use App\Services\TextParserService;
 use App\Sort\CatalogProductSort;
+use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
-use Exception;
 
 /**
  * Class CatalogController
@@ -56,9 +56,7 @@ class CatalogController extends PageController
             $catalog->text = $this->parserService->parse($catalog);
 
             $products = $this->dispatch(new GetAllCatalogProductsWithSortQuery($catalog, $this->catalogProductSort));
-
         } catch (Exception $exception) {
-
             return parent::show($alias);
         }
 

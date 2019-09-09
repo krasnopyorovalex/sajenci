@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\SliderImage\Commands;
+namespace Domain\SliderImage\Commands;
 
-use App\Domain\SliderImage\Queries\GetSliderImageByIdQuery;
+use Domain\SliderImage\Queries\GetSliderImageByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Storage;
 
 /**
  * Class DeleteSliderImageCommand
- * @package App\Domain\SliderImage\Commands
+ * @package Domain\SliderImage\Commands
  */
 class DeleteSliderImageCommand
 {
-
     use DispatchesJobs;
 
     private $id;
@@ -44,5 +43,4 @@ class DeleteSliderImageCommand
 
         return $image->delete();
     }
-
 }

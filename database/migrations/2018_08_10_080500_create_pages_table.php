@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreatePagesTable extends Migration
 {
@@ -21,7 +21,7 @@ class CreatePagesTable extends Migration
             $table->string('description', 512);
             $table->text('text')->nullable();
             $table->string('alias', 64)->unique();
-            $table->enum('is_published',[0,1])->default(1);
+            $table->enum('is_published', [0,1])->default(1);
             $table->timestamps();
         });
     }

@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\CatalogProduct;
-use App\Domain\CatalogProduct\Commands\CreateCatalogProductCommand;
-use App\Domain\CatalogProduct\Commands\DeleteCatalogProductCommand;
-use App\Domain\CatalogProduct\Commands\UpdateCatalogProductCommand;
-use App\Domain\CatalogProduct\Queries\GetAllCatalogProductsQuery;
-use App\Domain\CatalogProduct\Queries\GetCatalogProductByIdQuery;
+use Domain\CatalogProduct\Commands\CreateCatalogProductCommand;
+use Domain\CatalogProduct\Commands\DeleteCatalogProductCommand;
+use Domain\CatalogProduct\Commands\UpdateCatalogProductCommand;
+use Domain\CatalogProduct\Queries\GetAllCatalogProductsQuery;
+use Domain\CatalogProduct\Queries\GetCatalogProductByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\CatalogProduct\Requests\CreateCatalogProductRequest;
 use Domain\CatalogProduct\Requests\UpdateCatalogProductRequest;
-use Illuminate\Http\Request;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\View\View;
-use Illuminate\Routing\Redirector;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 /**
  * Class CatalogProductController
@@ -61,7 +61,7 @@ class CatalogProductController extends Controller
     {
         $this->dispatch(new CreateCatalogProductCommand($request));
 
-        return redirect(route('admin.catalog_products.index',[
+        return redirect(route('admin.catalog_products.index', [
             'catalog' => (int)$request->get('catalog_id')
         ]));
     }

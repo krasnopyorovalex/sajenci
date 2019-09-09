@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\Sort;
 
-
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 
 abstract class Sort
 {
@@ -66,5 +65,4 @@ abstract class Sort
     {
         return array_filter($this->request->only($this->sorts));
     }
-
 }

@@ -2,7 +2,7 @@
 
 namespace App\Rules;
 
-use App\Domain\CatalogProduct\Queries\ExistsCatalogProductByNameQuery;
+use Domain\CatalogProduct\Queries\ExistsCatalogProductByNameQuery;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 

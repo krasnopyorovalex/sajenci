@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Catalog\Queries;
+namespace Domain\Catalog\Queries;
 
 use App\Catalog;
 
 /**
  * Class GetCatalogByIdQuery
- * @package App\Domain\Catalog\Queries
+ * @package Domain\Catalog\Queries
  */
 class GetCatalogByAliasQuery
 {

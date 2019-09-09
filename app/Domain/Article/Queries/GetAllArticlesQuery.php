@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Article\Queries;
+namespace Domain\Article\Queries;
 
 use App\Article;
 
 /**
  * Class GetAllArticlesQuery
- * @package App\Domain\Article\Queries
+ * @package Domain\Article\Queries
  */
 class GetAllArticlesQuery
 {
@@ -41,11 +41,11 @@ class GetAllArticlesQuery
         $articles = Article::orderBy('published_at', 'desc');
 
         if ($this->isPublished) {
-           $articles->where('is_published', '1');
+            $articles->where('is_published', '1');
         }
 
         if ($this->limit) {
-            return $articles->paginate($this->limit, array('*'), 'page', (int)request('page'));
+            return $articles->paginate($this->limit, ['*'], 'page', (int)request('page'));
         }
 
         return $articles->get();

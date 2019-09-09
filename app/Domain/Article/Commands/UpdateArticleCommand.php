@@ -2,23 +2,22 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Article\Commands;
+namespace Domain\Article\Commands;
 
 use App\Article;
-use App\Domain\Article\Queries\GetArticleByIdQuery;
-use App\Domain\Image\Commands\DeleteImageCommand;
-use App\Domain\Image\Commands\UploadImageCommand;
+use Domain\Article\Queries\GetArticleByIdQuery;
+use Domain\Image\Commands\DeleteImageCommand;
+use Domain\Image\Commands\UploadImageCommand;
 use App\Events\RedirectDetected;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdateArticleCommand
- * @package App\Domain\Page\Commands
+ * @package Domain\Page\Commands
  */
 class UpdateArticleCommand
 {
-
     use DispatchesJobs;
 
     private $request;
@@ -56,5 +55,4 @@ class UpdateArticleCommand
 
         return $article->update($this->request->all());
     }
-
 }

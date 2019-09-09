@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Catalog\Queries;
+namespace Domain\Catalog\Queries;
 
 use App\Catalog;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Class GetAllCatalogsWithoutChildQuery
- * @package App\Domain\Catalog\Queries
+ * @package Domain\Catalog\Queries
  */
 class GetAllCatalogsWithoutChildQuery
 {

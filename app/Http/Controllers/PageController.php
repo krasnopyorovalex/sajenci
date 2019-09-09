@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Domain\Page\Queries\GetPageByAliasQuery;
+use Domain\Page\Queries\GetPageByAliasQuery;
 use App\Services\CanonicalService;
 use App\Services\TextParserService;
-use Illuminate\View\View;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 
 /**
  * Class PageController

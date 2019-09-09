@@ -12,5 +12,4 @@ Route::group(['prefix' => 'menu-items', 'as' => 'menu_items.'], static function 
     Route::delete('{id}', 'MenuItemController@destroy')->name('destroy');
 
     Route::post('sorting/{parent}', 'MenuItemController@sorting')->name('sorting');
-
 });

@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Article\Commands;
+namespace Domain\Article\Commands;
 
-use App\Domain\Article\Queries\GetArticleByIdQuery;
-use App\Domain\Image\Commands\DeleteImageCommand;
+use Domain\Article\Queries\GetArticleByIdQuery;
+use Domain\Image\Commands\DeleteImageCommand;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class DeleteArticleCommand
- * @package App\Domain\Article\Commands
+ * @package Domain\Article\Commands
  */
 class DeleteArticleCommand
 {
-
     use DispatchesJobs;
 
     /**
@@ -40,11 +39,10 @@ class DeleteArticleCommand
     {
         $article = $this->dispatch(new GetArticleByIdQuery($this->id));
 
-        if($article->image) {
+        if ($article->image) {
             $this->dispatch(new DeleteImageCommand($article->image));
         }
 
         return $article->delete();
     }
-
 }

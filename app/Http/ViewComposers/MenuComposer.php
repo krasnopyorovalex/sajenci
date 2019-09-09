@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\ViewComposers;
 
-use App\Domain\Menu\Queries\GetAllMenuWithMenuItemsQuery;
+use Domain\Menu\Queries\GetAllMenuWithMenuItemsQuery;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -15,7 +15,6 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
  */
 class MenuComposer
 {
-
     use DispatchesJobs;
 
     /**

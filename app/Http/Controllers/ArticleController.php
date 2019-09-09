@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Domain\Article\Queries\GetArticleByAliasQuery;
-//use App\Domain\Article\Queries\GetAdjoiningArticleQuery;
+use Domain\Article\Queries\GetArticleByAliasQuery;
+//use Domain\Article\Queries\GetAdjoiningArticleQuery;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
 

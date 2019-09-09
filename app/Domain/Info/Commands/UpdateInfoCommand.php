@@ -2,23 +2,22 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Info\Commands;
+namespace Domain\Info\Commands;
 
-use App\Info;
-use App\Domain\Info\Queries\GetInfoByIdQuery;
-use App\Domain\Image\Commands\DeleteImageCommand;
-use App\Domain\Image\Commands\UploadImageCommand;
+use Domain\Image\Commands\DeleteImageCommand;
+use Domain\Image\Commands\UploadImageCommand;
+use Domain\Info\Queries\GetInfoByIdQuery;
 use App\Events\RedirectDetected;
 use App\Http\Requests\Request;
+use App\Info;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdateInfoCommand
- * @package App\Domain\Page\Commands
+ * @package Domain\Page\Commands
  */
 class UpdateInfoCommand
 {
-
     use DispatchesJobs;
 
     private $request;
@@ -56,5 +55,4 @@ class UpdateInfoCommand
 
         return $info->update($this->request->all());
     }
-
 }

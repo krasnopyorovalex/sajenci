@@ -3,8 +3,8 @@
 namespace App\Services;
 
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManager;
 use Illuminate\Http\UploadedFile;
+use Intervention\Image\ImageManager;
 
 /**
  * Class UploadImagesService

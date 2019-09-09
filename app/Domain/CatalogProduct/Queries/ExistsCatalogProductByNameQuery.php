@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\CatalogProduct\Queries;
+namespace Domain\CatalogProduct\Queries;
 
 use App\CatalogProduct;
 
 /**
  * Class ExistsCatalogProductByNameQuery
- * @package App\Domain\CatalogProduct\Queries
+ * @package Domain\CatalogProduct\Queries
  */
 class ExistsCatalogProductByNameQuery
 {

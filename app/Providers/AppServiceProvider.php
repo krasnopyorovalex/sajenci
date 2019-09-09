@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
+use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 
 /**
  * Class AppServiceProvider

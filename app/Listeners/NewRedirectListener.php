@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Domain\MenuItem\Commands\UpdateMenuItemsLinkCommand;
-use App\Domain\MenuItem\Queries\GetMenuItemsByLinkQuery;
+use Domain\MenuItem\Commands\UpdateMenuItemsLinkCommand;
+use Domain\MenuItem\Queries\GetMenuItemsByLinkQuery;
 use App\Events\RedirectDetected;
 use App\Redirect;
 use Illuminate\Foundation\Bus\DispatchesJobs;

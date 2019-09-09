@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\SliderImage\Commands;
+namespace Domain\SliderImage\Commands;
 
-use App\SliderImage;
 use App\Services\UploadImagesService;
+use App\SliderImage;
 
 /**
  * Class CreateSliderImageCommand
- * @package App\Domain\SliderImage\Commands
+ * @package Domain\SliderImage\Commands
  */
 class CreateSliderImageCommand
 {
-
     private $uploadImage;
 
     /**
@@ -37,5 +36,4 @@ class CreateSliderImageCommand
 
         return $sliderImage->save();
     }
-
 }

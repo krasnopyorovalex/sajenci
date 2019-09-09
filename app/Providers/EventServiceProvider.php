@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
+use App\Events\RedirectDetected;
+use App\Listeners\NewRedirectListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use App\Events\RedirectDetected;
-use App\Listeners\NewRedirectListener;
 
 class EventServiceProvider extends ServiceProvider
 {

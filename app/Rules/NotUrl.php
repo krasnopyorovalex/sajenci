@@ -15,7 +15,7 @@ class NotUrl implements Rule
      */
     public function passes($attribute, $value): bool
     {
-        if (strstr($value,'http://') || strstr($value,'https://')) {
+        if (strstr($value, 'http://') || strstr($value, 'https://')) {
             return false;
         }
 

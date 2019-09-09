@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\Article\Commands\CreateArticleCommand;
-use App\Domain\Article\Commands\DeleteArticleCommand;
-use App\Domain\Article\Commands\UpdateArticleCommand;
-use App\Domain\Article\Queries\GetAllArticlesQuery;
-use App\Domain\Article\Queries\GetArticleByIdQuery;
+use Domain\Article\Commands\CreateArticleCommand;
+use Domain\Article\Commands\DeleteArticleCommand;
+use Domain\Article\Commands\UpdateArticleCommand;
+use Domain\Article\Queries\GetAllArticlesQuery;
+use Domain\Article\Queries\GetArticleByIdQuery;
 use App\Http\Controllers\Controller;
 use Domain\Article\Requests\CreateArticleRequest;
 use Domain\Article\Requests\UpdateArticleRequest;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 /**
  * Class ArticleController

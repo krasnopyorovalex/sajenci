@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Catalog\Commands;
+namespace Domain\Catalog\Commands;
 
-use App\Domain\Catalog\Queries\GetCatalogByIdQuery;
-use App\Domain\Image\Commands\DeleteImageCommand;
+use Domain\Catalog\Queries\GetCatalogByIdQuery;
+use Domain\Image\Commands\DeleteImageCommand;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class DeleteCatalogCommand
- * @package App\Domain\Catalog\Commands
+ * @package Domain\Catalog\Commands
  */
 class DeleteCatalogCommand
 {
-
     use DispatchesJobs;
 
     /**
@@ -40,11 +39,10 @@ class DeleteCatalogCommand
     {
         $catalog = $this->dispatch(new GetCatalogByIdQuery($this->id));
 
-        if($catalog->image) {
+        if ($catalog->image) {
             $this->dispatch(new DeleteImageCommand($catalog->image));
         }
 
         return $catalog->delete();
     }
-
 }

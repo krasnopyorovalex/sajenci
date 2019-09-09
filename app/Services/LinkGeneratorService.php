@@ -2,15 +2,15 @@
 
 namespace App\Services;
 
-use App\Catalog;
-use App\OurServiceItem;
-use Illuminate\Support\Str;
-use App\Page;
-use App\Info;
 use App\Article;
-use ReflectionClass;
-use Log;
+use App\Catalog;
+use App\Info;
+use App\OurServiceItem;
+use App\Page;
 use Exception;
+use Illuminate\Support\Str;
+use Log;
+use ReflectionClass;
 
 /**
  * Class LinkGeneratorService
@@ -40,7 +40,6 @@ class LinkGeneratorService
     public function getCollection(): array
     {
         foreach ($this->models as $key => $value) {
-
             try {
                 $reflectionClass = (new ReflectionClass($key))->newInstance();
                 $module = Str::snake(class_basename($reflectionClass));
@@ -69,5 +68,4 @@ class LinkGeneratorService
 
         return str_replace('index', '', $route);
     }
-
 }

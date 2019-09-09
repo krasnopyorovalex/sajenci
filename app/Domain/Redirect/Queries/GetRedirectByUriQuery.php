@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Redirect\Queries;
+namespace Domain\Redirect\Queries;
 
 use App\Redirect;
 
 /**
  * Class GetRedirectByIdQuery
- * @package App\Domain\Redirect\Queries
+ * @package Domain\Redirect\Queries
  */
 class GetRedirectByUriQuery
 {

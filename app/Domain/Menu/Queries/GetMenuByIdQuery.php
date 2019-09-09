@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Menu\Queries;
+namespace Domain\Menu\Queries;
 
 use App\Menu;
 
 /**
  * Class GetMenuByIdQuery
- * @package App\Domain\Menu\Queries
+ * @package Domain\Menu\Queries
  */
 class GetMenuByIdQuery
 {

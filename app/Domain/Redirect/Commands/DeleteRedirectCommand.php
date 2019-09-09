@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Redirect\Commands;
+namespace Domain\Redirect\Commands;
 
-use App\Domain\Redirect\Queries\GetRedirectByIdQuery;
+use Domain\Redirect\Queries\GetRedirectByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class DeleteRedirectCommand
- * @package App\Domain\Redirect\Commands
+ * @package Domain\Redirect\Commands
  */
 class DeleteRedirectCommand
 {
-
     use DispatchesJobs;
 
     private $id;
@@ -38,5 +37,4 @@ class DeleteRedirectCommand
 
         return $redirect->delete();
     }
-
 }

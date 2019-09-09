@@ -52,7 +52,6 @@ if (! function_exists('build_options')) {
         $originArray = count($helpArray) ? $helpArray : $array;
         foreach ($array as $item) {
             if (!is_array($item)) {
-
                 $html .= '<option value="' . $item->id . '"' . ($selected === $item->id ? 'selected=""' : '') . '>' . $step . $item->name . '</option>' . PHP_EOL;
 
                 if (isset($originArray['child_' . $item->id])) {
@@ -100,7 +99,7 @@ if (! function_exists('add_css_class')) {
         if ($item->is_service) {
             $classes[] = 'has__child';
         }
-        if (trim($item->link,'/') === request()->path() || request()->path() === $item->link) {
+        if (trim($item->link, '/') === request()->path() || request()->path() === $item->link) {
             $classes[] = 'active';
         }
         return count($classes) ? ' class="'. implode(' ', $classes) .'"' : '';

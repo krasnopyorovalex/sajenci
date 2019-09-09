@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\MenuItem\Commands;
+namespace Domain\MenuItem\Commands;
 
 use App\MenuItem;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Class UpdateMenuItemsLinkCommand
- * @package App\Domain\MenuItem\Commands
+ * @package Domain\MenuItem\Commands
  */
 class UpdateMenuItemsLinkCommand
 {
@@ -42,5 +42,4 @@ class UpdateMenuItemsLinkCommand
             ]);
         });
     }
-
 }

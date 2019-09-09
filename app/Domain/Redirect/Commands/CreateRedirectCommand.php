@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Redirect\Commands;
+namespace Domain\Redirect\Commands;
 
 use App\Http\Requests\Request;
 use App\Redirect;
 
 /**
  * Class CreateRedirectCommand
- * @package App\Domain\Redirect\Commands
+ * @package Domain\Redirect\Commands
  */
 class CreateRedirectCommand
 {
-
     private $request;
 
     /**
@@ -35,5 +34,4 @@ class CreateRedirectCommand
 
         return $redirect->save();
     }
-
 }

@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Info\Commands;
+namespace Domain\Info\Commands;
 
-use App\Domain\Info\Queries\GetInfoByIdQuery;
-use App\Domain\Image\Commands\DeleteImageCommand;
+use Domain\Image\Commands\DeleteImageCommand;
+use Domain\Info\Queries\GetInfoByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class DeleteInfoCommand
- * @package App\Domain\Info\Commands
+ * @package Domain\Info\Commands
  */
 class DeleteInfoCommand
 {
-
     use DispatchesJobs;
 
     /**
@@ -40,11 +39,10 @@ class DeleteInfoCommand
     {
         $info = $this->dispatch(new GetInfoByIdQuery($this->id));
 
-        if($info->image) {
+        if ($info->image) {
             $this->dispatch(new DeleteImageCommand($info->image));
         }
 
         return $info->delete();
     }
-
 }

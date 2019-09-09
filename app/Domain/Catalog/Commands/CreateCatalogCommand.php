@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Catalog\Commands;
+namespace Domain\Catalog\Commands;
 
-use App\Domain\Image\Commands\UploadImageCommand;
-use App\Http\Requests\Request;
 use App\Catalog;
+use Domain\Image\Commands\UploadImageCommand;
+use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class CreateCatalogCommand
- * @package App\Domain\Catalog\Commands
+ * @package Domain\Catalog\Commands
  */
 class CreateCatalogCommand
 {
@@ -37,11 +37,10 @@ class CreateCatalogCommand
         $catalog->fill($this->request->all());
         $catalog->save();
 
-        if($this->request->has('image')) {
+        if ($this->request->has('image')) {
             return $this->dispatch(new UploadImageCommand($this->request, $catalog->id, Catalog::class));
         }
 
         return true;
     }
-
 }

@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Redirect\Commands;
+namespace Domain\Redirect\Commands;
 
-use App\Domain\Redirect\Queries\GetRedirectByIdQuery;
+use Domain\Redirect\Queries\GetRedirectByIdQuery;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdateRedirectCommand
- * @package App\Domain\Redirect\Commands
+ * @package Domain\Redirect\Commands
  */
 class UpdateRedirectCommand
 {
-
     use DispatchesJobs;
 
     private $request;
@@ -40,5 +39,4 @@ class UpdateRedirectCommand
 
         return $redirect->update($this->request->all());
     }
-
 }

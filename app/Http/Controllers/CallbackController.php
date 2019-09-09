@@ -6,8 +6,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Forms\CallbackRequest;
 use App\Mail\CallbackSent;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class CallbackController

@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\MenuItem\Commands;
+namespace Domain\MenuItem\Commands;
 
 use App\MenuItem;
-use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Http\Request;
 
 /**
  * Class UpdateMenuItemsPositionsCommand
- * @package App\Domain\MenuItem\Commands
+ * @package Domain\MenuItem\Commands
  */
 class UpdateMenuItemsPositionsCommand
 {
-
     use DispatchesJobs;
 
     private $request;
@@ -41,5 +40,4 @@ class UpdateMenuItemsPositionsCommand
         }
         return true;
     }
-
 }

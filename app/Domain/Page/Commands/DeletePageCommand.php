@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Page\Commands;
+namespace Domain\Page\Commands;
 
-use App\Domain\Image\Commands\DeleteImageCommand;
-use App\Domain\Page\Queries\GetPageByIdQuery;
+use Domain\Image\Commands\DeleteImageCommand;
+use Domain\Page\Queries\GetPageByIdQuery;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class DeletePageCommand
- * @package App\Domain\Page\Commands
+ * @package Domain\Page\Commands
  */
 class DeletePageCommand
 {
-
     use DispatchesJobs;
 
     /**
@@ -40,11 +39,10 @@ class DeletePageCommand
     {
         $page = $this->dispatch(new GetPageByIdQuery($this->id));
 
-        if($page->image) {
+        if ($page->image) {
             $this->dispatch(new DeleteImageCommand($page->image));
         }
 
         return $page->delete();
     }
-
 }

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Slider\Queries;
+namespace Domain\Slider\Queries;
 
 use App\Slider;
 
 /**
  * Class GetAllSlidersQuery
- * @package App\Domain\Slider\Queries
+ * @package Domain\Slider\Queries
  */
 class GetAllSlidersQuery
 {

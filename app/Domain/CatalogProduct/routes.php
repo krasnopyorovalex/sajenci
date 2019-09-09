@@ -10,5 +10,4 @@ Route::group(['prefix' => 'catalog-products', 'as' => 'catalog_products.'], stat
     Route::get('{id}/edit', 'CatalogProductController@edit')->name('edit');
     Route::put('{id}', 'CatalogProductController@update')->name('update');
     Route::delete('{id}', 'CatalogProductController@destroy')->name('destroy');
-
 });

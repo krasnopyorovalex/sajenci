@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Domain\Slider\Queries\GetSliderByIdQuery;
-use App\Domain\SliderImage\Commands\CreateSliderImageCommand;
-use App\Domain\SliderImage\Commands\DeleteSliderImageCommand;
-use App\Domain\SliderImage\Commands\UpdatePositionsSliderImageCommand;
-use App\Domain\SliderImage\Commands\UpdateSliderImageCommand;
-use App\Domain\SliderImage\Queries\GetSliderImageByIdQuery;
+use Domain\Slider\Queries\GetSliderByIdQuery;
+use Domain\SliderImage\Commands\CreateSliderImageCommand;
+use Domain\SliderImage\Commands\DeleteSliderImageCommand;
+use Domain\SliderImage\Commands\UpdatePositionsSliderImageCommand;
+use Domain\SliderImage\Commands\UpdateSliderImageCommand;
+use Domain\SliderImage\Queries\GetSliderImageByIdQuery;
 use App\Http\Controllers\Controller;
 use App\Services\UploadImagesService;
 use Domain\SliderImage\Requests\CreateSliderImageRequest;

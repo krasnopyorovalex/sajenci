@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Http\ViewComposers\ArticlesComposer;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Container;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * Class ArticlesServiceProvider

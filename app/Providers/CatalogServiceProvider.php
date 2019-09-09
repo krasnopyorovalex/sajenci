@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Http\ViewComposers\CatalogComposer;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Container;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * Class CatalogServiceProvider

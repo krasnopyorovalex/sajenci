@@ -9,5 +9,4 @@ Route::group(['prefix' => 'catalogs', 'as' => 'catalogs.'], static function () {
     Route::get('{id}/edit', 'CatalogController@edit')->name('edit');
     Route::put('{id}', 'CatalogController@update')->name('update');
     Route::delete('{id}', 'CatalogController@destroy')->name('destroy');
-
 });

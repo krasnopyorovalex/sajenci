@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\MenuItem\Queries;
+namespace Domain\MenuItem\Queries;
 
 use App\MenuItem;
 
 /**
  * Class GetMenuItemsByLinkQuery
- * @package App\Domain\MenuItem\Queries
+ * @package Domain\MenuItem\Queries
  */
 class GetMenuItemsByLinkQuery
 {

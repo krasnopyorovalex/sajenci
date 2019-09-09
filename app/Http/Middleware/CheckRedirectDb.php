@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Domain\Redirect\Queries\GetRedirectByUriQuery;
-use App\Redirect;
+use Domain\Redirect\Queries\GetRedirectByUriQuery;
+use Domain\Redirect;
 use Closure;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -30,15 +30,14 @@ class CheckRedirectDb
         $existedInDb = $this->dispatch(new GetRedirectByUriQuery($request->getRequestUri()));
 
         if ($existedInDb) {
-           return redirect($existedInDb->url_new, 301);
+            return redirect($existedInDb->url_new, 301);
         }
 
         if ((strpos($request->getPathInfo(), '//') !== false) || (substr($request->getPathInfo(), -1) == '/' && $request->getPathInfo() != '/')) {
+            $actualUrl = preg_replace("/\/+/", "/", $request->getPathInfo());
 
-            $actualUrl = preg_replace("/\/+/","/", $request->getPathInfo());
-
-            if( substr($actualUrl, -1) == '/' ){
-                while( substr($actualUrl, -1) == '/' ){
+            if (substr($actualUrl, -1) == '/') {
+                while (substr($actualUrl, -1) == '/') {
                     $actualUrl = substr($actualUrl, 0, -1);
                 }
             }

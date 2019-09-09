@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\CatalogProduct\Queries;
+namespace Domain\CatalogProduct\Queries;
 
 use App\Catalog;
 use App\CatalogProduct;
@@ -11,7 +11,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 /**
  * Class GetAllCatalogProductsWithSortQuery
- * @package App\Domain\CatalogProduct\Queries
+ * @package Domain\CatalogProduct\Queries
  */
 class GetAllCatalogProductsWithSortQuery
 {

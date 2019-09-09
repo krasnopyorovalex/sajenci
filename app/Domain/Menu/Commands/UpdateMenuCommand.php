@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Menu\Commands;
+namespace Domain\Menu\Commands;
 
-use App\Domain\Menu\Queries\GetMenuByIdQuery;
+use Domain\Menu\Queries\GetMenuByIdQuery;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class UpdateMenuCommand
- * @package App\Domain\Menu\Commands
+ * @package Domain\Menu\Commands
  */
 class UpdateMenuCommand
 {
-
     use DispatchesJobs;
 
     private $request;
@@ -40,5 +39,4 @@ class UpdateMenuCommand
 
         return $page->update($this->request->all());
     }
-
 }
