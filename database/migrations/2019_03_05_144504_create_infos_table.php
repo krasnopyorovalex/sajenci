@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -22,7 +23,7 @@ class CreateInfosTable extends Migration
             $table->text('text');
             $table->string('alias', 64)->unique();
             $table->enum('is_published',[0,1])->default(1);
-            $table->date('published_at');
+            $table->date('published_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
